@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash Belekar - AI & Data Science Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-details {
+            margin-top: 2rem;
+        }
+
+        .detail-item {
+            margin-bottom: 1rem;
+            display: flex;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            width: 150px;
+            color: var(--dark);
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-link i {
+            margin-right: 5px;
+        }
+
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .cert-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cert-card p {
+            color: #555;
+        }
+
+        /* Links Section */
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .link-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .link-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            margin-right: 1rem;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links li {
+            margin: 0 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .projects-container, .certifications-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Yash<span>Belekar</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#links">Links</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm Yash Belekar</h1>
+                <p>I am a B.Tech Student (AI & DS) at Zeal College of Engineering and Research with strong interests in Python, Data Science, Web Development, AI, and Cloud Technologies.</p>
+                <p>I enjoy building projects, solving real-world problems, and continuously improving my technical skills.</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>AI & Data Science Enthusiast</h3>
+                    <p>I'm a passionate second-year B.Tech student specializing in Artificial Intelligence and Data Science. I have a strong foundation in programming, data analysis, and machine learning concepts.</p>
+                    <p>I'm constantly exploring new technologies and working on projects that solve real-world problems. My goal is to leverage AI and data science to create impactful solutions.</p>
+                    
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Name:</span>
+                            <span>Yash Belekar</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Course:</span>
+                            <span>B.Tech in Artificial Intelligence & Data Science</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">College:</span>
+                            <span>Zeal College of Engineering and Research</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Year:</span>
+                            <span>Second Year (SY)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Location:</span>
+                            <span>Pune, Maharashtra</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span>yashbelekar54@gmail.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Contact No.:</span>
+                            <span>+91 1235673221</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="profile-img">
+                        <i class="fas fa-user" style="font-size: 8rem; color: #3498db; line-height: 300px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>C / C++</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Data & AI Skills</h3>
+                    <ul class="skill-list">
+                        <li>Machine Learning (Basics)</li>
+                        <li>Data Analysis (Pandas, NumPy)</li>
+                        <li>Data Visualization (Matplotlib, Power BI)</li>
+                        <li>SQL & Database Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe"></i> Web & Cloud Skills</h3>
+                    <ul class="skill-list">
+                        <li>HTML / CSS</li>
+                        <li>WordPress / Wix Website Creation</li>
+                        <li>Cloud Basics (AWS / Azure)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools</h3>
+                    <ul class="skill-list">
+                        <li>Jupyter Notebook</li>
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>Excel</li>
+                        <li>Google Colab</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>ELK Stack APT Detection System</h3>
+                        <p>A comprehensive cybersecurity solution that uses the ELK Stack (Elasticsearch, Logstash, Kibana) to detect Advanced Persistent Threats (APTs) in real-time. The system collects and analyzes log data from multiple sources to identify suspicious patterns and potential security breaches.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Elasticsearch</span>
+                            <span class="tech-tag">Logstash</span>
+                            <span class="tech-tag">Kibana</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yashbelekar54-create" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Library Management System</h3>
+                        <p>A digital solution for managing library operations including book inventory, member registrations, borrowing/returning processes, and fine calculations. The system provides an intuitive interface for both librarians and members, streamlining library operations and improving user experience.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Tkinter</span>
+                            <span class="tech-tag">Database Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yashbelekar54-create" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications & Achievements</h2>
+            </div>
+            <div class="certifications-container">
+                <div class="cert-card">
+                    <h3>Python Fundamentals</h3>
+                    <p>Great Learning Academy</p>
+                </div>
+                <div class="cert-card">
+                    <h3>Python with ML</h3>
+                    <p>Google Cloud</p>
+                </div>
+                <div class="cert-card">
+                    <h3>Gen AI Studio</h3>
+                    <p>Google Cloud</p>
+                </div>
+                <div class="cert-card">
+                    <h3>Power BI</h3>
+                    <p>Microsoft</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Links Section -->
+    <section id="links">
+        <div class="container">
+            <div class="section-title">
+                <h2>Important Links</h2>
+            </div>
+            <div class="links-container">
+                <div class="link-card">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/yashbelekar54-create">GitHub Profile</a>
+                </div>
+                <div class="link-card">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="www.linkedin.com/in/yash-belekar-1b31aa333">LinkedIn Profile</a>
+                </div>
+                <div class="link-card">
+                    <i class="fab fa-hackerrank"></i>
+                    <a href="#">HackerRank Profile</a>
+                </div>
+                <div class="link-card">
+                    <i class="fas fa-code"></i>
+                    <a href="#">LeetCode Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Have a project idea or collaboration in mind? Feel free to reach out!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>yashbelekar54@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 1235673221</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pune, Maharashtra</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/yashbelekar54-create" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="www.linkedin.com/in/yash-belekar-1b31aa333" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Yash<span>Belekar</span></div>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <p class="copyright">© 2025 Yash Belekar | Designed with HTML, CSS & JavaScript</p>
+                <p class="copyright">Made with 👍 by an aspiring AI & DS Engineer.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
